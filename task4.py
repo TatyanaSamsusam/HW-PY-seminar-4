@@ -1,19 +1,16 @@
-# 3- Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
-# Пример: при N = 12 -> [2, 3]
+# 4- В текстовом файле удалить все слова, которые содержат хотя бы одну цифру.
+# В файле содержится, например:
+# Мама сшила м0не штаны и7з бере9зовой кор45ы 893. -> Мама сшила штаны.
 
-numberN = int(input('enter N: '))
+path = 'mama2.txt'
+data = open(path, 'r')
+substring = data.read().split()
 
-def find_simple_multiplier (num):
-    my_list = []
-    i = 2
-    while num !=1:
-        if num % i == 0:
-            my_list.append(i)
-            num = num // i
-        else: 
-            i = i+1
-    return my_list
+new_list = []
+for words in substring:
+    if words.isalpha():
+        new_list.append(words)
 
-answer = find_simple_multiplier(numberN)
+data.close()
 
-print(list(set(answer)))
+print (' '.join(new_list))
